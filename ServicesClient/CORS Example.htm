@@ -1,0 +1,719 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sitecore8.ServicesClient</title>
+
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.2/flatly/bootstrap.min.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    .tile {
+      min-height: 350px;
+    }
+
+    #options-form .dropdown-menu {
+      min-width: 250px;
+    }
+
+      #options-form .dropdown-menu .row {
+        margin: 5px;
+      }
+
+    @media (max-width: 767px) {
+      #options-form label {
+        color: white;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav role="navigation" class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="javascript:window.location.reload();" class="navbar-brand">Sitecore8.ServicesClient</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle" role="button" aria-expanded="false">Sitecore API <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#item-path" data-toggle="tab">Item Path</a></li>
+              <li><a href="#item-id" data-toggle="tab">Item ID</a></li>
+              <li><a href="#item-children" data-toggle="tab">Item Children</a></li>
+              <li><a href="#item-search" data-toggle="tab">Item Search</a></li>
+            </ul>
+          </li>
+          <li><a data-toggle="tab" href="#custom">Custom API</a></li>
+        </ul>
+
+        <form class="form" id="options-form" role="form">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle text-danger" data-toggle="dropdown"><i class="fa fa-fw fa-cogs"></i> Options <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">Mandatory</li>
+                <li>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label>Instance Name</label>
+                        <input type="text" class="form-control" id="instance" placeholder="e.g. sc8r141212">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="dropdown-header">Optional</li>
+                <li>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label>Database</label>
+                        <input type="text" class="form-control" name="database" value="" placeholder="e.g. core">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label>Language</label>
+                        <input type="text" class="form-control" name="language" value="" placeholder="e.g. en">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="tab-content">
+      <div class="tab-pane active" id="home" role="tabpanel">
+        <div class="jumbotron">
+          <h1>CORS Example</h1>
+          <p>
+            Because this page runs from another domain (it's probably loaded from <code>file:///</code> protocol) we
+            can showcase the CORS (Cross-Origin Resource Sharing) features. If you see an error when executing these
+            examples, one of two things went wrong: CORS isn't enable, or you never pushed the code to your server.
+          </p>
+          <p>
+            Please remember that th einstance I've used is <code>sc8r141212</code>, so if yours varies you'll need
+            to adjust it in the options drop-down at the top-right of the page.
+          </p>
+        </div>
+        <div class="row text-center">
+          <div class="col-sm-6 col-md-4 tile">
+            <a href="#item-path" data-toggle="tab">
+              <span class="fa-stack fa-5x text-primary">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-road fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+            <h2>Item Path</h2>
+            <p>See how to query an item from Sitecore by its path.</p>
+            <a data-toggle="tab" href="#item-path" class="btn btn-primary">Learn More &raquo;</a>
+          </div>
+          <div class="col-sm-6 col-md-4 tile">
+            <a href="#item-id" data-toggle="tab">
+              <span class="fa-stack fa-5x text-primary">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-bullseye fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+            <h2>Item ID</h2>
+            <p>See how to query an item from Sitecore by its ID.</p>
+            <a data-toggle="tab" href="#item-id" class="btn btn-primary">Learn More &raquo;</a>
+          </div>
+          <div class="col-sm-6 col-md-4 tile">
+            <a href="#item-children" data-toggle="tab">
+              <span class="fa-stack fa-5x text-primary">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+            <h2>Item Children</h2>
+            <p>See how to query an item's children from Sitecore.</p>
+            <a data-toggle="tab" href="#item-children" class="btn btn-primary">Learn More &raquo;</a>
+          </div>
+          <div class="col-sm-6 col-md-4 col-md-offset-2 tile">
+            <a href="#item-search" data-toggle="tab">
+              <span class="fa-stack fa-5x text-primary">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-search fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+            <h2>Item Search</h2>
+            <p>See how to search for item in Sitecore.</p>
+            <a data-toggle="tab" href="#item-search" class="btn btn-primary">Learn More &raquo;</a>
+          </div>
+          <div class="col-sm-6 col-md-4 tile">
+            <a href="#custom" data-toggle="tab">
+              <span class="fa-stack fa-5x text-primary">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-code fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+            <h2>Custom API</h2>
+            <p>See how to querying your own API is just as easy.</p>
+            <a data-toggle="tab" href="#custom" class="btn btn-primary">Learn More &raquo;</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="item-path" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 col-lg-3 text-center">
+            <span class="fa-stack fa-5x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
+            </span>
+            <h1>Item Path</h1>
+            <p>Retrieve an item by its path.</p>
+            <ul class="list-group">
+              <li class="list-group-item"><a href="#" class="show-source" data-source="#item-path-source" data-target="#item-path-result">Show Source Code</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-12 col-md-8 col-lg-9">
+            <form class="form" id="item-path-form" data-target="#item-path-result" role="form">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label>Item Path</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="path" value="/sitecore/content/Home" placeholder="e.g. /sitecore/content/Home">
+                      <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          Presets <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                          <li><a href="#" data-value="/sitecore/content/Home">Home</a></li>
+                          <li><a href="#" data-value="/sitecore/Media Library">Media Library</a></li>
+                          <li><a href="#" data-value="/sitecore/Social">Social</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <span class="help-block">Query Parameter: path (required)</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="includeMetadata" value="true">
+                          Include Metadata
+                        </label>
+                        <span class="help-block">Query Parameter: includeMetadata (optional)</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="includeStandardFields" value="true">
+                          Include Standard Fields
+                        </label>
+                        <span class="help-block">Query Parameter: includeStandardFields (optional)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-footer text-right">
+                  <button type="submit" class="btn btn-primary">Execute</button>
+                </div>
+              </div>
+            </form>
+            <div id="item-path-result"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="item-id" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 col-lg-3 text-center">
+            <span class="fa-stack fa-5x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-bullseye fa-stack-1x fa-inverse"></i>
+            </span>
+            <h1>Item ID</h1>
+            <p>Retrieve an item by its ID.</p>
+            <ul class="list-group">
+              <li class="list-group-item"><a href="#" class="show-source" data-source="#item-id-source" data-target="#item-id-result">Show Source Code</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-12 col-md-8 col-lg-9">
+            <form class="form" id="item-id-form" data-target="#item-id-result" role="form">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label>Item ID</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="item-id-id" value="{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}" placeholder="e.g. {110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}">
+                      <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          Presets <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                          <li><a href="#" data-value="{11111111-1111-1111-1111-111111111111}">Sitecore</a></li>
+                          <li><a href="#" data-value="{0DE95AE4-41AB-4D01-9EB0-67441B7C2450}">&emsp;Content</a></li>
+                          <li><a href="#" data-value="{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}">&emsp;&emsp;Home</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#" data-value="{3D6658D8-A0BF-4E75-B3E2-D050FABCF4E1}">Media Library</a></li>
+                          <li><a href="#" data-value="{4D8A1C4D-1351-4DD1-A502-0660F01FEDC7}">&emsp;Default Website</a></li>
+                          <li><a href="#" data-value="{04DAD0FD-DB66-4070-881F-17264CA257E1}">&emsp;&emsp;Cover</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#" data-value="{8972ABAA-542B-464E-963B-38D36AB550B8}">Social</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <span class="help-block">URL Parameter: id (required)</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="includeMetadata" value="true">
+                          Include Metadata
+                        </label>
+                        <span class="help-block">Query Parameter: includeMetadata (optional)</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="includeStandardFields" value="true">
+                          Include Standard Fields
+                        </label>
+                        <span class="help-block">Query Parameter: includeStandardFields (optional)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-footer text-right">
+                  <button type="submit" class="btn btn-primary">Execute</button>
+                </div>
+              </div>
+            </form>
+            <div id="item-id-result"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="item-children" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 col-lg-3 text-center">
+            <span class="fa-stack fa-5x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
+            </span>
+            <h1>Item Children</h1>
+            <p>Retrieve an item's children.</p>
+            <ul class="list-group">
+              <li class="list-group-item"><a href="#" class="show-source" data-source="#item-children-source" data-target="#item-children-result">Show Source Code</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-12 col-md-8 col-lg-9">
+            <form class="form" id="item-children-form" data-target="#item-children-result" role="form">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label>Item ID</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="item-children-id" value="{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}" placeholder="e.g. {110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}">
+                      <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          Presets <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                          <li><a href="#" data-value="{11111111-1111-1111-1111-111111111111}">Sitecore</a></li>
+                          <li><a href="#" data-value="{0DE95AE4-41AB-4D01-9EB0-67441B7C2450}">&emsp;Content</a></li>
+                          <li><a href="#" data-value="{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}">&emsp;&emsp;Home</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#" data-value="{3D6658D8-A0BF-4E75-B3E2-D050FABCF4E1}">Media Library</a></li>
+                          <li><a href="#" data-value="{4D8A1C4D-1351-4DD1-A502-0660F01FEDC7}">&emsp;Default Website</a></li>
+                          <li><a href="#" data-value="{04DAD0FD-DB66-4070-881F-17264CA257E1}">&emsp;&emsp;Cover</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#" data-value="{8972ABAA-542B-464E-963B-38D36AB550B8}">Social</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <span class="help-block">URL Parameter: id (required)</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="includeMetadata" value="true">
+                          Include Metadata
+                        </label>
+                        <span class="help-block">Query Parameter: includeMetadata (optional)</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="includeStandardFields" value="true">
+                          Include Standard Fields
+                        </label>
+                        <span class="help-block">Query Parameter: includeStandardFields (optional)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-footer text-right">
+                  <button type="submit" class="btn btn-primary">Execute</button>
+                </div>
+              </div>
+            </form>
+            <div id="item-children-result"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="item-search" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 col-lg-3 text-center">
+            <span class="fa-stack fa-5x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-search fa-stack-1x fa-inverse"></i>
+            </span>
+            <h1>Item Search</h1>
+            <p>Retrieve an item by searching.</p>
+            <ul class="list-group">
+              <li class="list-group-item"><a href="#" class="show-source" data-source="#item-search-source" data-target="#item-search-result">Show Source Code</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-12 col-md-8 col-lg-9">
+            <form class="form" id="item-search-form" data-target="#item-search-result" role="form">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label>Search Term</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="term" value="Home" placeholder="e.g. Home">
+                      <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          Presets <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                          <li><a href="#" data-value="Home">Home</a></li>
+                          <li><a href="#" data-value="Media Library">Media Library</a></li>
+                          <li><a href="#" data-value="Social">Social</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <span class="help-block">Query Parameter: term (required)</span>
+                  </div>
+                </div>
+                <div class="panel-footer text-right">
+                  <button type="submit" class="btn btn-primary">Execute</button>
+                </div>
+              </div>
+            </form>
+            <div id="item-search-result"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="custom" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 col-lg-3 text-center">
+            <span class="fa-stack fa-5x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-code fa-stack-1x fa-inverse"></i>
+            </span>
+            <h1>Custom API</h1>
+            <p>Example of using our custom "Product" API.</p>
+            <ul class="list-group">
+              <li class="list-group-item"><a href="#" class="show-source" data-source="#custom-get-source" data-target="#custom-result">Show GET Source Code</a></li>
+              <!--<li class="list-group-item"><a href="#" class="show-source" data-source="#custom-post-source" data-target="#custom-result">Show POST Source Code</a></li>
+              <li class="list-group-item"><a href="#" class="show-source" data-source="#custom-put-source" data-target="#custom-result">Show PUT Source Code</a></li>
+              <li class="list-group-item"><a href="#" class="show-source" data-source="#custom-delete-source" data-target="#custom-result">Show DELETE Source Code</a></li>-->
+            </ul>
+          </div>
+          <div class="col-sm-12 col-md-8 col-lg-9">
+            <form class="form" id="custom-get-form" data-target="#custom-result" role="form">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label>Item ID</label>
+                    <input type="text" class="form-control" id="custom-get-id" value="" placeholder="e.g. {3CFEEC2B-4449-4F7D-B89C-4A7C534AD874}">
+                    <span class="help-block">URL Parameter: id (optional; absent value lists all items)</span>
+                  </div>
+                </div>
+                <div class="panel-footer text-right">
+                  <button type="submit" class="btn btn-primary">Execute</button>
+                </div>
+              </div>
+            </form>
+            <div id="custom-result"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--
+  Yes, it's spread out. Not how I like it, but to kee the UX simple I went this route.
+  My apologies in advance.
+  -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    (function (window, $, undefined) {
+      'use strict';
+
+      $.fn.bsAlert = function (opts) {
+        if (typeof opts === 'string') {
+          opts = { 'message': opts };
+        }
+        var options = $.extend({}, $.fn.bsAlert.defaults, opts);
+
+        var $alert = $('<div>').addClass('alert alert-' + options.type).html(options.message);
+        if (options.preface) {
+          $('<strong>').text(options.preface).prependTo($alert);
+        }
+        if (options.title) {
+          $('<h4>').text(options.title).prependTo($alert);
+        }
+        if (options.closable && $.fn.alert) {
+          $('<button>', {
+            'attr': {
+              'type': 'button',
+              'class': 'close',
+              'aria-label': 'Close',
+              'data-dismiss': 'alert' // http://api.jquery.com/data/#data-html5 (all values are cached--can't use .data())
+            },
+            'html': $('<span>', {
+              'attr': {
+                'aria-hidden': 'true'
+              },
+              'html': '&times;'
+            })
+          }).prependTo($alert);
+          $alert.alert();
+        }
+        $alert.appendTo(this);
+      };
+      $.fn.bsAlert.defaults = {
+        'type': 'info',
+        'preface': undefined,
+        'title': undefined,
+        'message': 'This is an alert.',
+        'closable': true
+      };
+    })(window, jQuery);
+  </script>
+  <script type="text/javascript">
+    (function (window, $, undefined) {
+      'use strict';
+
+      $.extend(window, {
+        'getInstanceName': function () {
+          return $('#instance').val() || 'sc8r141212';
+        },
+        'getGlobalOptions': function () {
+          var opts = $('#options-form :input').filter(function () { return $(this).val().length > 0; }).serialize();
+          return (opts && opts.length > 0 ? '&' + opts : '');
+        },
+        'handleDone': function ($target) {
+          return function (d, statusText, xhr) {
+            console.log(this, d, xhr);
+            if (this.type == 'POST' && xhr.status == '201') {
+              $target.bsAlert({
+                'type': 'success',
+                'title': xhr.statusText,
+                'message': 'Your item was successfully created.'
+              });
+            } else {
+              $('<pre>').text(JSON.stringify(d, null, '  ')).appendTo($target);
+            }
+            $('<p>').addClass('text-muted text-center').text(this.type + ' ' + this.url).appendTo($target);
+          }
+        },
+        'handleFail': function ($target) {
+          return function (err, statusText, xhr) {
+            if (err.status == 404) {
+              $target.bsAlert({
+                'type': 'danger',
+                'title': 'Item not found',
+                'message': 'The item you are looking for was not found.'
+              });
+            } else {
+              $target.bsAlert({
+                'type': 'warning',
+                'title': 'Unable to query',
+                'message': err.statusText != "error" ? err.statusText
+                  : "Check to make sure you have access (CORS enabled?) and try again."
+              });
+            }
+          };
+        }
+      });
+
+      $('#options-form').on('click', ':input', function (e) {
+        e.stopPropagation();
+      });
+
+      $('.input-group').on('click', '.dropdown-menu a', function (e) {
+        var $this = $(this),
+            $value = $this.data('value'),
+            $input = $this.closest('.input-group').find(':input');
+        $input.val($value);
+      });
+
+      $('.show-source').on('click', function (e) {
+        var $this = $(this),
+            $source = $($this.data('source')),
+            $target = $($this.data('target'));
+        $target.empty();
+        $('<pre>').text($source.html()).appendTo($target);
+        e.preventDefault();
+        return false;
+      });
+
+      $('form').submit(function (e) {
+        var $form = $(this),
+            $target = $($form.data('target')),
+            $button = $form.find('button[type="submit"]');
+        $target.empty();
+      });
+
+    })(window, jQuery);
+  </script>
+  <script type="text/javascript" id="item-path-source">
+    (function (window, $, undefined) {
+      'use strict';
+
+      $(function () {
+        $('#item-path-form').on('submit', function (e) {
+          var $form = $(this),
+              $target = $($form.data('target'));
+          $.ajax({
+            url: 'http://' + window.getInstanceName() + '/sitecore/api/ssc/item',
+            type: 'GET',
+            data: $form.serialize() // path,database,includeMetadata,includeStandardFields
+                  + window.getGlobalOptions(),
+          }).done(window.handleDone($target)).fail(window.handleFail($target));
+          e.preventDefault();
+          return false;
+        });
+      });
+    })(window, jQuery);
+  </script>
+  <script type="text/javascript" id="item-id-source">
+    (function (window, $, undefined) {
+      'use strict';
+
+      $(function () {
+        $('#item-id-form').on('submit', function (e) {
+          var $form = $(this),
+              itemID = encodeURIComponent($('#item-id-id').val()),
+              $target = $($form.data('target'));
+          $.ajax({
+            url: 'http://' + window.getInstanceName() + '/sitecore/api/ssc/item/' + itemID,
+            type: 'GET',
+            data: $form.serialize() // database,includeMetadata,includeStandardFields
+          }).done(window.handleDone($target)).fail(window.handleFail($target));
+          e.preventDefault();
+          return false;
+        });
+      });
+    })(window, jQuery);
+  </script>
+  <script type="text/javascript" id="item-children-source">
+    (function (window, $, undefined) {
+      'use strict';
+
+      $(function () {
+        $('#item-children-form').on('submit', function (e) {
+          var $form = $(this),
+              itemID = encodeURIComponent($('#item-children-id').val()),
+              $target = $($form.data('target'));
+          $.ajax({
+            url: 'http://' + window.getInstanceName() + '/sitecore/api/ssc/item/' + itemID + '/children',
+            type: 'GET',
+            data: $form.serialize() // database,includeMetadata,includeStandardFields
+          }).done(window.handleDone($target)).fail(window.handleFail($target));
+          e.preventDefault();
+          return false;
+        });
+      });
+    })(window, jQuery);
+  </script>
+  <script type="text/javascript" id="item-search-source">
+    (function (window, $, undefined) {
+      'use strict';
+
+      $(function () {
+        $('#item-search-form').on('submit', function (e) {
+          var $form = $(this),
+              $target = $($form.data('target'));
+          $.ajax({
+            url: 'http://' + window.getInstanceName() + '/sitecore/api/ssc/item/search',
+            type: 'GET',
+            data: $form.serialize() // term,database,includeMetadata,includeStandardFields
+          }).done(window.handleDone($target)).fail(window.handleFail($target)).always(function () {
+            console.log('always', this);
+          });
+          e.preventDefault();
+          return false;
+        });
+      });
+    })(window, jQuery);
+  </script>
+  <script type="text/javascript" id="custom-get-source">
+    (function (window, $, undefined) {
+      'use strict';
+
+      $(function () {
+        $('#custom-get-form').on('submit', function (e) {
+          var $form = $(this),
+              itemID = encodeURIComponent($('#custom-get-id').val()),
+              $target = $($form.data('target')),
+              serviceEndpoint = 'Sitecore8-ServicesClient-Controllers/Product/';
+          $.ajax({
+            url: 'http://' + window.getInstanceName() + '/sitecore/api/ssc/' + serviceEndpoint + itemID,
+            type: 'GET',
+            data: $form.serialize() // database,includeMetadata,includeStandardFields
+          }).done(window.handleDone($target)).fail(window.handleFail($target));
+          e.preventDefault();
+          return false;
+        });
+      });
+    })(window, jQuery);
+  </script>
+  <script type="text/javascript" id="custom-post-source">
+    (function (window, $, undefined) {
+      'use strict';
+
+      $(function () {
+        $('#custom-post-form').on('submit', function (e) {
+          var $form = $(this),
+              $target = $($form.data('target')),
+              serviceEndpoint = 'Sitecore8-ServicesClient-Controllers/Product/',
+              data = JSON.stringify({
+                Id: $('#custom-post-id').val(),
+                Name: $('#customer-post-name').val(),
+                Category: $('#custom-post-category').val()
+              });
+          $.ajax({
+            url: 'http://' + window.getInstanceName() + '/sitecore/api/ssc/' + serviceEndpoint,
+            type: 'POST',
+            data: data
+          }).done(window.handleDone($target)).fail(window.handleFail($target));
+          e.preventDefault();
+          return false;
+        });
+      });
+    })(window, jQuery);
+  </script>
+</body>
+</html>

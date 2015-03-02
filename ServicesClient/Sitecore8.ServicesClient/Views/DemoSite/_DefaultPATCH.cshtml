@@ -1,0 +1,55 @@
+﻿<form class="form" id="patch-form-prep" data-target="#patch-form-result" role="form">
+  <div class="well well-sm">
+    <div class="alert alert-warning">
+      <strong>Warning</strong> The below example requires an item to modify first. For simplicity's
+      sake, the default path for the <code>POST</code> request is already supplied. Simply press
+      <span class="label label-default">Fetch</span>, make your edits, then submit the changes using
+      <span class="label label-default">Execute</span>.
+    </div>
+    <div class="form-group">
+      <label>Pre-Fetch</label>
+      <div class="input-group">
+        <input type="text" class="form-control" name="path" value="/sitecore/content/Sitecore8-ServicesClient" placeholder="e.g. /sitecore/Content/Sitecore8-ServicesClient">
+        <div class="input-group-btn">
+          <button type="submit" class="btn btn-default">Fetch</button>
+        </div>
+      </div>
+    </div>
+    <div id="patch-form-result"></div>
+  </div>
+</form>
+<form class="form" id="patch-form" data-target="#default-patch-result" role="form">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="form-group">
+        <label>Item ID</label>
+        <input type="text" class="form-control" readonly="readonly" id="patch-id" value="">
+        <span class="help-block">URL Parameter: id (required)</span>
+      </div>
+      <div class="form-group">
+        <label>Item Name</label>
+        <input type="text" class="form-control" id="patch-itemname" value="">
+        <span class="help-block">POST Data: ItemName</span>
+      </div>
+      <div class="form-group">
+        <label>Template ID</label>
+        <input type="text" class="form-control" readonly="readonly" id="patch-templateid" value="">
+        <span class="help-block">POST Data: TemplateId (Sample Template id)</span>
+      </div>
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" id="patch-title" value="">
+        <span class="help-block">POST Data: Title (Sample Template field)</span>
+      </div>
+      <div class="form-group">
+        <label>Text</label>
+        <textarea rows="3" class="form-control" id="patch-text"></textarea>
+        <span class="help-block">POST Data: Title (Sample Template field)</span>
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <button type="submit" class="btn btn-primary" disabled="disabled">Execute</button>
+    </div>
+  </div>
+</form>
+<div id="default-patch-result"></div>

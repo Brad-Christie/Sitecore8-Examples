@@ -55,7 +55,7 @@ http://sitecore8/api/products/5
       "Category": "Module"
     }
 
-**Disclaimer**
+### Disclaimer
 
 I have Sitecore 8 binaries added as an internal NuGet package. As you know, I cannot distribute these binaries, so please make sure to add the appropriate DLLs to these projects before compiling. This should simply consist of:
 

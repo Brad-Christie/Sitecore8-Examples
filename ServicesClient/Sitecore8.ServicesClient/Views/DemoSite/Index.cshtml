@@ -1,0 +1,33 @@
+﻿@{
+  ViewBag.Title = "Home";
+}
+@section Jumbotron {
+  <header class="jumbotron">
+    <h1>Sitecore8.ServicesClient</h1>
+    <p>Try out some of the below samples demonstrating how to leverage the Sitecore Services Client.</p>
+  </header>
+}
+<div class="row text-center">
+  <div class="col-sm-6">
+    <a href="@Url.RouteUrl("Sitecore8-ServicesClient", new { action = "Default" })">
+      <span class="fa-stack fa-5x text-primary">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    <h4>Default Service</h4>
+    <p>View a few examples of how to leverage the built-in Sitecore.Services.Client API.</p>
+    <a href="@Url.RouteUrl("Sitecore8-ServicesClient", new { action = "Default" })" class="btn btn-primary btn-sm">Try It &raquo;</a>
+  </div>
+  <div class="col-sm-6">
+    <a href="@Url.RouteUrl("Sitecore8-ServicesClient", new { action = "Custom" })">
+      <span class="fa-stack fa-5x text-primary">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-file-code-o fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    <h4>Custom Service</h4>
+    <p>View a couple of exmaples of how to integrate with a custom service you can build.</p>
+    <a href="@Url.RouteUrl("Sitecore8-ServicesClient", new { action = "Custom" })" class="btn btn-primary btn-sm">Try It &raquo;</a>
+  </div>
+</div>

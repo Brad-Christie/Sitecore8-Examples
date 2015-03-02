@@ -1,0 +1,57 @@
+﻿@{
+  ViewBag.Title = "Default";
+  ViewBag.Subtitle = "Use the built-in item API.";
+}
+<div class="row">
+  <div class="col-sm-12 col-md-4 col-lg-3 text-center">
+    <span class="fa-stack fa-5x">
+      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+      <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+    </span>
+    <h1>Default API</h1>
+    <p>Exmaples of using the default API.</p>
+    <p>&nbsp;</p>
+    <div class="form-group">
+      <label>Target Database</label>
+      <select id="default-database" class="form-control">
+        <option value="" selected="selected">(Default)</option>
+        <option value="master">Master</option>
+        <option value="web">Web</option>
+      </select>
+      <span class="help-block">Query Parameter: database (optional)</span>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-8 col-lg-9">
+    <div role="tabpanel">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active" role="presentation"><a href="#get" data-toggle="tab" role="tab">GET</a></li>
+        <li role="presentation"><a href="#post" data-toggle="tab" role="tab">POST</a></li>
+        <li role="presentation"><a href="#patch" data-toggle="tab" role="tab">PATCH</a></li>
+        <li role="presentation"><a href="#delete" data-toggle="tab" role="tab">DELETE</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="get" role="tabpanel">
+          @Html.Partial("_DefaultGET")
+        </div>
+        <div class="tab-pane" id="post" role="tabpanel">
+          @Html.Partial("_DefaultPOST")
+        </div>
+        <div class="tab-pane" id="patch" role="tabpanel">
+          @Html.Partial("_DefaultPATCH")
+        </div>
+        <div class="tab-pane" id="delete" role="tabpanel">
+          @Html.Partial("_DefaultDELETE")
+        </div>
+      </div>
+      <div id="default-result"></div>
+    </div>
+  </div>
+</div>
+
+@section Scripts {
+  @*
+    If I wanted to do this a better way I'd probably use an MvvM framework like KnockoutJS
+    or angular. However, I wanted to put emphasis on the service calls and not the UX framework.
+  *@
+  <script src="~/Scripts/DemoSite/action-Default.min.js" id="default-source"></script>
+}

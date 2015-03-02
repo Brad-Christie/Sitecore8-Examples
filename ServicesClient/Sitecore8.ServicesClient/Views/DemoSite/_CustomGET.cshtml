@@ -1,0 +1,27 @@
+﻿<form class="form" id="custom-form" data-target="#custom-result" role="form">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="form-group">
+        <label>Item ID</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="custom-id" value="" placeholder="e.g. {3CFEEC2B-4449-4F7D-B89C-4A7C534AD874}">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              Presets <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+              <li><a href="#" data-value="{3CFEEC2B-4449-4F7D-B89C-4A7C534AD874}">Sitecore 8.0, CMS</a></li>
+              <li><a href="#" data-value="{62C8FB0B-FF90-40FE-A1AA-C9443F800F60}">Sitecore 7.5, CMS</a></li>
+              <li><a href="#" data-value="{C835F10F-887F-4953-9058-F8881601865F}">WebForms for Marketers, Module</a></li>
+            </ul>
+          </div>
+        </div>
+        <span class="help-block">URL Parameter: id (optional; empty retrieves all items)</span>
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <button type="submit" class="btn btn-primary">Execute</button>
+    </div>
+  </div>
+</form>
+<div id="custom-result"></div>

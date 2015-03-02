@@ -1,0 +1,26 @@
+﻿@*
+  Easter Egg!
+  I originally placed code on jsFiddle to demonstrate the site could be accessed from
+  a remote resource. However, I decided I really didn't need to do that and could demo
+  it just as easily with a static file (CORS Example.htm).
+  Feel free to visit the url referenced int he IFrame src below, though, and give it
+  a try. Just keep in mind I tested it while I did it, but never looked back (so if
+  is is broken I apologize).
+*@
+@{
+  ViewBag.Title = "JsFiddle";
+  ViewBag.Subtitle = "Demonstrate crossing the origin boundary";
+}
+<div class="alert alert-info">
+  <p>
+    The below code is brought in through an <code>&lt;IFrame&gt;</code> as to
+    go beyond the origin boundary. However, because CORS is enabled on the server
+    we are able to retrieve the information just the same.
+  </p>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <iframe style="min-height:800px;width:100%;" src="//jsfiddle.net/b39yokvs/embedded/result,js,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  </div>
+</div>

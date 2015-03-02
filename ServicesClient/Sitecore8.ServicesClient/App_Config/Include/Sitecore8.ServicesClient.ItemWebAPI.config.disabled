@@ -1,0 +1,11 @@
+﻿<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
+  <sitecore>
+    <sites>
+      <site name="website">
+        <patch:attribute name="itemwebapi.mode">On</patch:attribute>
+        <patch:attribute name="itemwebapi.access">ReadOnly</patch:attribute>
+        <patch:attribute name="itemwebapi.allowanonymousaccess">true</patch:attribute>
+      </site>
+    </sites>
+  </sitecore>
+</configuration>

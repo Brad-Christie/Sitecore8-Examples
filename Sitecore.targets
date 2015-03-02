@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ExcludeFilesFromDeployment>web.config;Antlr3.Runtime.dll;ComponentArt.Web.UI.dll;CsQuery.dll;CustomFields.AccountSelector.dll;DotNetOpenAuth.dll;EcmaScript.NET.dll;Facebook*.dll;Google*.dll;Hammock.ClientProfile.dll;HtmlAgilityPack.dll;Iesi.Collections.dll;ITHit.WebDAV.Server.dll;Lucene*.dll;Microsoft.Web.Infrastructure.dll;MongoDB*.dll;Mvp.Xml.dll;Newtonsoft.Json.dll;OAuthLinkedIn.dll;protobuf-net.dll;RadEditor.Net2.dll;Sitecore*.dll;Stimulsoft*.dll;System.Net.Http.dll;System.Net.Http.Formatting.dll;System.Net.Http.WebRequest.dll;System.Web.Cors.dll;System.Web.Helpers.dll;System.Web.Http.Cors.dll;System.Web.Http.dll;System.Web.Http.WebHost.dll;System.Web.Mvc.dll;System.Web.Optimization.dll;System.Web.Razor.dll;System.Web.WebPages.Deployment.dll;System.Web.WebPages.dll;System.Web.WebPages.Razor.dll;Telerik*.dll;TweetSharp.dll;WebGrease.dll;Yahoo.Yui.Compressor.dll</ExcludeFilesFromDeployment>
+  </PropertyGroup>
+</Project>

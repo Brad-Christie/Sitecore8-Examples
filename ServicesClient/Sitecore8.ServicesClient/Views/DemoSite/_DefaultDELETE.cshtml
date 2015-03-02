@@ -1,0 +1,20 @@
+﻿<form class="form" id="delete-form" data-target="#default-delete-result" role="form">
+  <div class="alert alert-danger">
+    <strong>Danger</strong> Deleting is always scary. To make this a little more difficult I'm forcing
+    the use of an ID instead of a path (like the <code>PATCH</code> example). If an ID already exists,
+    it came from the PATCH lookup you did earlier.
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="form-group">
+        <label>Item ID</label>
+        <input type="text" class="form-control" id="delete-id" value="">
+        <span class="help-block">URL Parameter: id (required)</span>
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <button type="submit" class="btn btn-primary" disabled="disabled">Execute</button>
+    </div>
+  </div>
+</form>
+<div id="default-delete-result"></div>
