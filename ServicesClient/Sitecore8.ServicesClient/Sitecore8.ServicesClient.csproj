@@ -52,33 +52,29 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sitecore.Analytics">
-      <HintPath>..\packages\Sitecore.8.0.141212\lib\net45\Sitecore.Analytics.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Sitecore.Analytics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sitecore.8.0.150223\lib\net45\Sitecore.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Kernel">
-      <HintPath>..\packages\Sitecore.8.0.141212\lib\net45\Sitecore.Kernel.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Sitecore.Kernel, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sitecore.8.0.150223\lib\net45\Sitecore.Kernel.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Logging">
-      <HintPath>..\packages\Sitecore.8.0.141212\lib\net45\Sitecore.Logging.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Sitecore.Services.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sitecore.Services.Client.8.0.150223\lib\net45\Sitecore.Services.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Services.Client">
-      <HintPath>..\packages\Sitecore.Services.Client.8.0.141212\lib\net45\Sitecore.Services.Client.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Sitecore.Services.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sitecore.Services.Client.8.0.150223\lib\net45\Sitecore.Services.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Services.Core">
-      <HintPath>..\packages\Sitecore.Services.Client.8.0.141212\lib\net45\Sitecore.Services.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Sitecore.Services.Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sitecore.Services.Client.8.0.150223\lib\net45\Sitecore.Services.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Services.Infrastructure">
-      <HintPath>..\packages\Sitecore.Services.Client.8.0.141212\lib\net45\Sitecore.Services.Infrastructure.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Sitecore.Services.Infrastructure.Sitecore">
-      <HintPath>..\packages\Sitecore.Services.Client.8.0.141212\lib\net45\Sitecore.Services.Infrastructure.Sitecore.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Sitecore.Services.Infrastructure.Sitecore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sitecore.Services.Client.8.0.150223\lib\net45\Sitecore.Services.Infrastructure.Sitecore.dll</HintPath>
     </Reference>
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Net.Http" />
@@ -212,6 +208,7 @@
     <Content Include="Scripts\DemoSite\action-Custom.min.js.map">
       <DependentUpon>action-Custom.min.js</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\sc8r150223.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\DemoSite\app.js" />
