@@ -3,7 +3,7 @@ Sitecore8-ServicesClient
 
 ### Summary
 
-This is an example of how to use the Sitecore.Services.Client in Sitecore8. At the time of this test, I was using Sitecore 8 rev 141212.
+This is an example of how to use the Sitecore.Services.Client in Sitecore8. At the time of this test, I was using Sitecore 8 rev ~~141212~~ 150223.
 
 Also, this makes no assumptions about data present in Sitecore other than those found in a clean install. I tried to keep this demo as simple as possible, but if you find yourself having issues it may be variances from that of the default install.
 
@@ -21,11 +21,19 @@ Also, for your own trials, I have included a console application as well that ac
 
 * [Developer's Guide to Sitecore.Services.Client](https://sdn.sitecore.net/upload/sitecore7/75/developer%27s_guide_to_sitecore.services.client_sc75-a4.pdf)
 
+### Release Notes
+
+* Update (03/03/2015)
+    * Updated project to use Sitecore 8 rev 150223 (No changes other than binary updates)
+    * Set web.config to Build Action: None. This is to avoid pushing the file when publishing to your Sitecore instance.
+* Initial Release (03/02/2015)
+
+
 ### Disclaimer
 
 > Use at own risk. This is meant to run on an instance you can tear down/rebuild, not a production environment. This is due to the relaxed security settings and my use of an MVC site (internally) to demo functionality (which may override views/custom config files you already have).
 >
-> If you feel this could be problematic, please do not install this on your instance.
+> If you feel this could be problematic, please do not install this on your instance (or, at the very least, make a backup of your instance before proceeding).
 
 I have Sitecore 8 binaries added as an internal NuGet package. As you know, I cannot distribute these binaries, so please make sure to add the appropriate DLLs to these projects before compiling. This should simply consist of:
 
