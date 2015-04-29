@@ -7,6 +7,8 @@ This repository houses various examples of how to perform tasks using Sitecore8.
 
 ### Table of Contents
 
+* Assorted Scripts  
+  These are various scripts I've put together that perform some kind of procedure on Sitecore.
 * Item Web API (WebAPI)  
   This demonstrates how to implement a simple ApiController within Sitecore8.
 * Sitecore.Services.Client (ServicesClient)  
