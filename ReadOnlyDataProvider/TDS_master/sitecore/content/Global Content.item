@@ -1,0 +1,11 @@
+----item----
+version: 1
+id: {63531AA9-4E58-4FA2-8F52-2990CA7EF02E}
+database: master
+path: /sitecore/content/Global Content
+parent: {0DE95AE4-41AB-4D01-9EB0-67441B7C2450}
+name: Global Content
+master: {00000000-0000-0000-0000-000000000000}
+template: {72BC7580-BAE4-4739-90FF-044F8411BEC3}
+templatekey: Global Content
+

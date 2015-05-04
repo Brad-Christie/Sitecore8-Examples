@@ -11,6 +11,8 @@ This repository houses various examples of how to perform tasks using Sitecore8.
   These are various scripts I've put together that perform some kind of procedure on Sitecore.
 * Item Web API (WebAPI)  
   This demonstrates how to implement a simple ApiController within Sitecore8.
+* ReadOnlyDataProvider  
+  This demonstrating pulling data in from an external source into your content tree.
 * Sitecore.Services.Client (ServicesClient)  
   This demonstrates how to pull information from Sitecore using the new (to Sitecore 7.5) Services Client.
 

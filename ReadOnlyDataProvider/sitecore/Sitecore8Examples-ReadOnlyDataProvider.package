@@ -1,0 +1,86 @@
+<project site="vpsitecore" format="Zip Package" targetfilefolder="wwwroot">
+  <Metadata>
+    <metadata>
+      <PackageName>Sitecore8Examples-ReadOnlyDataProvider</PackageName>
+      <Author>Sitecore</Author>
+      <Version>1.0</Version>
+      <Revision />
+      <License />
+      <Comment />
+      <Attributes />
+      <Readme />
+      <Publisher>Sitecore</Publisher>
+      <PostStep />
+      <PackageID />
+    </metadata>
+  </Metadata>
+  <SaveProject>True</SaveProject>
+  <Sources>
+    <xitems>
+      <Entries>
+        <x-item>/master/sitecore/templates/ReadOnlyDataProvider/{50E10BF5-7869-485C-ADA2-8113F841EB14}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/ReadOnlyDataProvider/Global Content/{72BC7580-BAE4-4739-90FF-044F8411BEC3}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/ReadOnlyDataProvider/Product/{D0357D3B-6F11-47CB-9E43-9CED15EA8B95}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/ReadOnlyDataProvider/Products/{8E168B4E-9DA5-436B-8B32-06742469904A}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/ReadOnlyDataProvider/Product/Product/{20ABA8E8-2C08-4E29-BCB3-C03D7395EAE1}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/ReadOnlyDataProvider/Product/Product Metadata/{46AE33AD-D5F7-40A9-86EC-AADDFFF5A16E}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/ReadOnlyDataProvider/Product/Product/Name/{FBCAFA85-D28F-4D75-B023-2EF732E5B8BE}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/ReadOnlyDataProvider/Product/Product/Description/{5E0D64A5-A9F1-499E-B705-DCDE1482E4F2}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/ReadOnlyDataProvider/Product/Product Metadata/Database Id/{7DECF998-5CFE-4665-AF5E-EA51DAB54D7B}/invariant/0</x-item>
+        <x-item>/master/sitecore/content/Global Content/{63531AA9-4E58-4FA2-8F52-2990CA7EF02E}/invariant/0</x-item>
+        <x-item>/master/sitecore/content/Global Content/Products/{3D178CEC-6CA5-45E1-9031-F79145BA76F3}/invariant/0</x-item>
+      </Entries>
+      <SkipVersions>False</SkipVersions>
+      <Converter>
+        <ItemToEntryConverter>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </ItemToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Items</Name>
+    </xitems>
+    <xfiles>
+      <Entries>
+        <x-item>/App_Config/Include/ReadOnlyDataProvider.Web.config</x-item>
+        <x-item>/bin/ReadOnlyDataProvider.WebUI.dll</x-item>
+        <x-item>/bin/ReadOnlyDataProvider.WebUI.pdb</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root />
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Files</Name>
+    </xfiles>
+  </Sources>
+  <Converter>
+    <TrivialConverter>
+      <Transforms />
+    </TrivialConverter>
+  </Converter>
+  <Include />
+  <Exclude />
+  <Name />
+</project>

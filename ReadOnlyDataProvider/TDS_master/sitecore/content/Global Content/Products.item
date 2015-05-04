@@ -1,0 +1,11 @@
+----item----
+version: 1
+id: {3D178CEC-6CA5-45E1-9031-F79145BA76F3}
+database: master
+path: /sitecore/content/Global Content/Products
+parent: {63531AA9-4E58-4FA2-8F52-2990CA7EF02E}
+name: Products
+master: {00000000-0000-0000-0000-000000000000}
+template: {8E168B4E-9DA5-436B-8B32-06742469904A}
+templatekey: Products
+
